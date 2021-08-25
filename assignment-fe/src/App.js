@@ -1,21 +1,21 @@
-import { Switch, Route } from "react-router-dom";
-import { signUp } from './pages/signUp';
-
-import './App.css';
+  
+import Signup from "./pages/signUp";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ExistingUser from "./pages/existingUser";
 
 
 function App() {
-
-
-
   return (
-    <div className="App">
-      
-      <Switch>
-        <Route path="/signup" component={signUp} />
-      </Switch>
-    </div>
-  );
+      <>
+      <Router>
+        <Switch>
+        <Route exact path="/allusers" component={ExistingUser} />
+        <Route exact path="/" component={Signup} />
+        </Switch>
+      </Router>
+      </>
+    );
 }
 
 export default App;
+
