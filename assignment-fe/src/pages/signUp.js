@@ -50,16 +50,16 @@ export default function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-       
+
         if (validateInputs()) {
-            // reset errors
-            // network call 
+            
             alert("Password does not match Try Again!!!")
 
         }
         else {
             let myurl = "http://localhost:5000/api/users"
-            axios.post(myurl, formData).then(res => {
+            axios.post(myurl, formData)
+            .then(res => {
                 console.log(res.data)
                 setSuccessfull(true)
             })
@@ -92,7 +92,7 @@ export default function Signup() {
                     <div class=" justify-center mt-8 content-center">
                         User Registered Successfully
                         <Button variant="outlined" color="secondary" onClick={() => setSuccessfull(false)} > Create Another User </Button>
-                                <br/>
+                        <br />
                         <Link to="/allusers">
                             <Button variant="outlined" color="secondary" > See Existing  User </Button>
                         </Link>
@@ -120,7 +120,7 @@ export default function Signup() {
                             <div className="content-center justify-center">
                                 {selectedImage && <img className="w-40 ml-40" src={selectedImage} />}
                             </div>
-                            
+
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div className=" mt-2">
                                     <br />
@@ -185,7 +185,7 @@ export default function Signup() {
                                         onChange={handleChange}
                                     />
                                 </div>
-                               
+
                                 <br />
                                 <div className="w-60 ml-32 pb-4">
 
@@ -193,13 +193,12 @@ export default function Signup() {
                                         required
                                         size="small"
                                         type="file"
-                                        name="ZipCode"
-                                        
+                                        name="profileImage"
                                         onChange={handleFileInput}
                                     />
                                 </div>
                                 <Button className="shadow-xl hover:bg-blue-700" variant="outlined" type="submit" color="secondary" > Submit </Button>
-                            </form><br/>
+                            </form><br />
                             <Link to="/allusers">
                                 <Button variant="outlined" color="secondary" > Existing User </Button>
 
